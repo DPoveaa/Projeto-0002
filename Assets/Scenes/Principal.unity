@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 410956156}
   - component: {fileID: 410956155}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 991523648}
   - component: {fileID: 991523647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1405587123}
   - component: {fileID: 1405587122}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -553,7 +553,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1460305767}
   - component: {fileID: 1460305768}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Buraco
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -638,7 +638,7 @@ GameObject:
   - component: {fileID: 1622314937}
   - component: {fileID: 1622314936}
   - component: {fileID: 1622314935}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Plataforma Principal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1985207474}
   - component: {fileID: 1985207473}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Square (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -823,6 +823,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3467676963534153791 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5905017222356624669, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+  m_PrefabInstance: {fileID: 7056432753073671458}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7056432753073671458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -830,6 +835,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 993814756895676970, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2083453306423889644, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2330423364819911716, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -874,9 +887,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2985580882877994437, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342473367855293940, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4518503321121387779, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204033759752993880, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5905017222356624669, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbf91c71086be824d9751361a7b0b8e2, type: 3}
+--- !u!114 &7793410376786089737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467676963534153791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a07057dbdb8c76c4ba0a43466a36fe81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
