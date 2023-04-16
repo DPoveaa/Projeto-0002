@@ -24,12 +24,13 @@ public class Player : MonoBehaviour
         pulo = Input.GetButtonDown("Jump");
         if (pulo == true && isgrounded == true) {
             playerRB.AddForce(new Vector2(0, jumpforce));
+            isgrounded = false;
         }
     }
 
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("ground")) {
+        if (col.gameObject.CompareTag("Ground")) {
             isgrounded = true;
         
         }
