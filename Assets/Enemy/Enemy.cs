@@ -41,7 +41,6 @@ public class Enemy : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground"))
         {
-            Debug.Log(isGrounded);
             Flip();
             isGrounded = false;
         }
