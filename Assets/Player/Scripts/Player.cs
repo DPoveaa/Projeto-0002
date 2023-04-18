@@ -31,11 +31,11 @@ public class Player : MonoBehaviour
             isgrounded = false;
         }
         #endregion
-        if (movePlayer > 0) {
+        if (movePlayer >= 0) {
             transform.eulerAngles = new Vector2(0, 0);
         }
 
-        if (movePlayer < 0) {
+        if (movePlayer <= 0) {
             transform.eulerAngles = new Vector2 (0 ,0);
         }
 
