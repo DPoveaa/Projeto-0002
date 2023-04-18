@@ -972,6 +972,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1080346630}
   - component: {fileID: 1080346629}
+  - component: {fileID: 1080346631}
   m_Layer: 0
   m_Name: Square (1)
   m_TagString: Untagged
@@ -1046,6 +1047,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1080346631
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080346628}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.022554055, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.9548919, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1113168357
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1271085529}
   - component: {fileID: 1271085528}
+  - component: {fileID: 1271085530}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -1352,6 +1380,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1271085530
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271085527}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.026754513, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.946491, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1434706030
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1542,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460305766}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.0458, y: 0.372, z: 0}
+  m_LocalPosition: {x: 0.0448, y: 0.44, z: 0}
   m_LocalScale: {x: 0.08770172, y: 0.23032372, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
