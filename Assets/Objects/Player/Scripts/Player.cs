@@ -49,6 +49,7 @@ public class Player : MonoBehaviour
         }
         #endregion
     }
+    #region
     private void OnCollisionEnter2D(Collision2D col)
     {
         
@@ -60,7 +61,7 @@ public class Player : MonoBehaviour
             isgrounded = true;
         }
     }
-
+    #endregion
     #region Void Flip
     void Flip() {
         isFacingRight = !isFacingRight; // Inverte o valor de isFacingRight
