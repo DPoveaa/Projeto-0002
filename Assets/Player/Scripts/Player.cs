@@ -19,15 +19,13 @@ public class Player : MonoBehaviour
     private bool isFacingRight = true; // Verifica se o personagem está virado para a direita
     #endregion
     #region Vida
-    public int vida;
+    public int vida = 100;
     #endregion
     #endregion
     void Start()
     {
-        int vida = 100;
+        int vida;
     }
-
-
     void Update()
     {
         #region movimentação
@@ -51,20 +49,24 @@ public class Player : MonoBehaviour
         }
         #endregion
     }
-
     private void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Ground")) {
+        
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
             isgrounded = true;
         }
     }
+
     #region Void Flip
     void Flip() {
         isFacingRight = !isFacingRight; // Inverte o valor de isFacingRight
         Vector3 scale = characterSprite.localScale; //Obtém a escala atual do sprite
         scale.x *= -1; // inverte o eixo x para virar o personagem
         characterSprite.localScale = scale; // Aplica a nova escala ao Sprite
-    
     }
     #endregion
 }
