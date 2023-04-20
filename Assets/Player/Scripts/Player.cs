@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    #region Vars
     #region movimentação
     public float speed;
     public Rigidbody2D playerRB;
@@ -13,10 +14,17 @@ public class Player : MonoBehaviour
     public float jumpforce;
     public bool pulo, isgrounded;
     #endregion
-    
+    #region Flip var
+    public Transform characterSprite; // Referência ao Sprite do Personagem 
+    private bool isFacingRight = true; // Verifica se o personagem está virado para a direita
+    #endregion
+    #region Vida
+    public int vida;
+    #endregion
+    #endregion
     void Start()
     {
-
+        int vida = 100;
     }
 
 
@@ -31,14 +39,17 @@ public class Player : MonoBehaviour
             isgrounded = false;
         }
         #endregion
-        if (movePlayer >= 0) {
-            transform.eulerAngles = new Vector2(0, 0);
+        #region Flip Float
+        float moveHorizontal = Input.GetAxis("Horizontal"); // Obtém a entrada do eixo horizontal (esquerda/direita)
+        if (moveHorizontal > 0 && !isFacingRight) // Se o personagem estiver se movendo para a direia, e não estiver virado para a direita
+        {
+            Flip(); // Chama a função de virar o personagem
         }
-
-        if (movePlayer <= 0) {
-            transform.eulerAngles = new Vector2 (0 ,0);
+        else if (moveHorizontal < 0 && isFacingRight) //Se o personagem estiver se movendo para a esquerda e estiver virado para a direita
+        {
+            Flip(); // Chama a função de virar o personagem
         }
-
+        #endregion
     }
 
     private void OnCollisionEnter2D(Collision2D col)
@@ -47,5 +58,14 @@ public class Player : MonoBehaviour
             isgrounded = true;
         }
     }
+    #region Void Flip
+    void Flip() {
+        isFacingRight = !isFacingRight; // Inverte o valor de isFacingRight
+        Vector3 scale = characterSprite.localScale; //Obtém a escala atual do sprite
+        scale.x *= -1; // inverte o eixo x para virar o personagem
+        characterSprite.localScale = scale; // Aplica a nova escala ao Sprite
+    
+    }
+    #endregion
 }
 
