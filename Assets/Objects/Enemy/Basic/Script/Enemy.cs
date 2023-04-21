@@ -58,6 +58,7 @@ public class Enemy : MonoBehaviour
         else if (other.gameObject.CompareTag("Player"))
         {
             Destroy(other.gameObject);
+            Debug.Log("Trigger");
         }
     }
     #endregion
@@ -67,8 +68,8 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            // Play hurt animation or sound
             Destroy(gameObject);
+            Debug.Log("Collider");
         }
     }
     #endregion
