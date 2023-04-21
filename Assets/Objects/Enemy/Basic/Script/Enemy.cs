@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private bool isGrounded = true;
     public bool movingRight = true;
     private Rigidbody2D rb;
+    private bool kill = false;
+    private bool die = false;
     #endregion
     void Start()
     {
@@ -55,9 +57,11 @@ public class Enemy : MonoBehaviour
         {
             isGrounded = true;
         }
-        else if (other.gameObject.CompareTag("Player"))
+
+        if (other.gameObject.CompareTag("Player")) //kill the player
         {
             Destroy(other.gameObject);
+            kill = true;
             Debug.Log("Trigger");
         }
     }
@@ -66,11 +70,20 @@ public class Enemy : MonoBehaviour
     #region OnCollisionEnter
     void OnCollisionEnter2D(Collision2D col)
     {
-        if (col.gameObject.CompareTag("Player"))
+        if (col.gameObject.CompareTag("Player") && !kill) //kill the enemy
         {
             Destroy(gameObject);
             Debug.Log("Collider");
         }
     }
+    #endregion
+
+    #region kill and die
+
+    private void KillPlayer()
+    {
+        Destroy(gameObject);
+    }
+
     #endregion
 }

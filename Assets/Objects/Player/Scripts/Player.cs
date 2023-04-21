@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     #region jump
     public float jumpforce;
     public bool pulo, isgrounded;
+    public GameObject groundCheck;
     #endregion
     #region Flip var
     public Transform characterSprite; // Referência ao Sprite do Personagem 
