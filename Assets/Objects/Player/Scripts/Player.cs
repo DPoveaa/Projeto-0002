@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private bool isFacingRight = true; // Verifica se o personagem está virado para a direita
     #endregion
     #region Vida
+    public bool dead = false;
+    public bool holeDeath = false;
     public int vida = 100;
     #endregion
     #endregion
@@ -33,7 +35,8 @@ public class Player : MonoBehaviour
         movePlayer = Input.GetAxis("Horizontal");
         playerRB.velocity = new Vector2(movePlayer * speed, playerRB.velocity.y);
         pulo = Input.GetButtonDown("Jump");
-        if (pulo == true && isgrounded == true) {
+        if (pulo == true && isgrounded == true)
+        {
             playerRB.AddForce(new Vector2(0, jumpforce));
             isgrounded = false;
         }
@@ -49,12 +52,37 @@ public class Player : MonoBehaviour
             Flip(); // Chama a função de virar o personagem
         }
         #endregion
+        #region if dies
+        if (dead)
+        {
+            PlayerDeath();
+        }
+        #endregion
     }
-    #region
+
+    public void PlayerDeath ()
+    {
+        dead = true;
+        Destroy(gameObject);
+    }
+
+    #region OnCollision
+
+    #region OnCollisionEnter
     private void OnCollisionEnter2D(Collision2D col)
     {
-        
+        if (col.gameObject.CompareTag("Hole"))
+        {
+            dead = true;
+        }
     }
+    #endregion
+
+    #endregion
+
+    #region OnTrigger
+
+    #region OnTriggerEnter
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -63,6 +91,9 @@ public class Player : MonoBehaviour
         }
     }
     #endregion
+
+    #endregion
+
     #region Void Flip
     void Flip() {
         isFacingRight = !isFacingRight; // Inverte o valor de isFacingRight
@@ -72,4 +103,3 @@ public class Player : MonoBehaviour
     }
     #endregion
 }
-

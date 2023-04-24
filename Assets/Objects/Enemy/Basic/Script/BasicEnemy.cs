@@ -3,9 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class BasicEnemy : MonoBehaviour
 {
     #region Vars
+    public Player player;
     public float speed = 3f;
     public GameObject leftLimit;
     public GameObject rightLimit;
@@ -14,7 +15,7 @@ public class Enemy : MonoBehaviour
     private bool isGrounded = true;
     public bool movingRight = true;
     private Rigidbody2D rb;
-    private bool kill = false;
+    public bool kill = false;
     private bool die = false;
     #endregion
     void Start()
@@ -51,7 +52,7 @@ public class Enemy : MonoBehaviour
     #endregion
 
     #region OntriggerEnter
-    private void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Ground"))
         {
@@ -60,20 +61,18 @@ public class Enemy : MonoBehaviour
 
         if (other.gameObject.CompareTag("Player")) //kill the player
         {
-            Destroy(other.gameObject);
             kill = true;
-            Debug.Log("Trigger");
+            player.dead = true;
         }
     }
     #endregion
 
     #region OnCollisionEnter
-    void OnCollisionEnter2D(Collision2D col)
+    public void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.CompareTag("Player") && !kill) //kill the enemy
         {
             Destroy(gameObject);
-            Debug.Log("Collider");
         }
     }
     #endregion
