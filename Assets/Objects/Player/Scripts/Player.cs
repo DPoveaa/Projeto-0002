@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -7,13 +5,16 @@ public class Player : MonoBehaviour
     #region Vars
     #region movimentação
     public float speed;
-    public Rigidbody2D playerRB;
     private float movePlayer;
+    private Rigidbody2D rb;
     #endregion
     #region jump
     public float jumpforce;
     public bool pulo, isgrounded;
     public GameObject groundCheck;
+    public ParticleSystem landingEffectPrefab;
+    public float LandingEffectYOffset;
+    bool canLandEffect = true;
     #endregion
     #region Flip var
     public Transform characterSprite; // Referência ao Sprite do Personagem 
@@ -27,17 +28,18 @@ public class Player : MonoBehaviour
     #endregion
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         int vida;
     }
     void Update()
     {
         #region movimentação
         movePlayer = Input.GetAxis("Horizontal");
-        playerRB.velocity = new Vector2(movePlayer * speed, playerRB.velocity.y);
+        rb.velocity = new Vector2(movePlayer * speed, rb.velocity.y);
         pulo = Input.GetButtonDown("Jump");
         if (pulo == true && isgrounded == true)
         {
-            playerRB.AddForce(new Vector2(0, jumpforce));
+            rb.AddForce(new Vector2(0, jumpforce));
             isgrounded = false;
         }
         #endregion
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour
         #endregion
     }
 
-    public void PlayerDeath ()
+    public void PlayerDeath()
     {
         dead = true;
         Destroy(gameObject);
@@ -82,12 +84,26 @@ public class Player : MonoBehaviour
 
     #region OnTrigger
 
+    #region OnTriggerExit
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            canLandEffect = true;
+        }
+            
+    }
+
+    #endregion
+
     #region OnTriggerEnter
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             isgrounded = true;
+            LandingEffect();
         }
     }
     #endregion
@@ -95,11 +111,25 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Void Flip
-    void Flip() {
+    void Flip()
+    {
         isFacingRight = !isFacingRight; // Inverte o valor de isFacingRight
         Vector3 scale = characterSprite.localScale; //Obtém a escala atual do sprite
         scale.x *= -1; // inverte o eixo x para virar o personagem
         characterSprite.localScale = scale; // Aplica a nova escala ao Sprite
     }
+    #endregion
+
+    #region landingEffect
+
+    public void LandingEffect()
+    {
+        if (canLandEffect)
+        {
+            Instantiate(landingEffectPrefab, new Vector3(rb.position.x, rb.position.y - LandingEffectYOffset), Quaternion.identity);
+            canLandEffect = false;
+        }
+    }
+
     #endregion
 }
