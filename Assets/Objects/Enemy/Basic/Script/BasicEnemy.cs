@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Pathfinding;
+using Unity.VisualScripting;
+using UnityEditor;
 
 public class BasicEnemy : MonoBehaviour
 {
@@ -12,12 +15,12 @@ public class BasicEnemy : MonoBehaviour
     public GameObject rightLimit;
     public GameObject killCheck;
     public GameObject GroundCheck;
-    private bool isGrounded = true;
     public bool movingRight = true;
     private Rigidbody2D rb;
     public bool kill = false;
     private bool die = false;
     #endregion
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Will get the enemy rigidbody so the script can manipulate
@@ -46,7 +49,6 @@ public class BasicEnemy : MonoBehaviour
         if (other.gameObject.CompareTag("Ground"))
         {
             Flip();
-            isGrounded = false;
         }
     }
     #endregion
@@ -54,11 +56,6 @@ public class BasicEnemy : MonoBehaviour
     #region OntriggerEnter
     public void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Ground"))
-        {
-            isGrounded = true;
-        }
-
         if (other.gameObject.CompareTag("Player")) //kill the player
         {
             kill = true;
@@ -77,12 +74,4 @@ public class BasicEnemy : MonoBehaviour
     }
     #endregion
 
-    #region kill and die
-
-    private void KillPlayer()
-    {
-        Destroy(gameObject);
-    }
-
-    #endregion
 }

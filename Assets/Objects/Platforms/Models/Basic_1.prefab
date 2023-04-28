@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 756820976050792424}
   - component: {fileID: 756820976050792425}
   - component: {fileID: 8933809447237477744}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Basic_1
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -139,3 +139,6 @@ MonoBehaviour:
   m_ShapePathHash: 160822549
   m_Mesh: {fileID: 0}
   m_InstanceId: -28038
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
